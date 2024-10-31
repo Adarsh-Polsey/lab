@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Circle Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Circle Calculator</h2>
+        <div class="input-group">
+            <label>Enter radius:</label>
+            <input type="number" id="radius" placeholder="Enter radius value">
+        </div>
+        <button onclick="calculateCircle()">Calculate</button>
+        <div id="result" class="result">
+            Enter a radius to calculate area and circumference
+        </div>
+    </div>
+
+    <script>
+        function calculateCircle() {
+            const radius = parseFloat(document.getElementById('radius').value);
+            const resultDiv = document.getElementById('result');
+            
+            if (isNaN(radius) || radius <= 0) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = "Please enter a valid positive number!";
+                return;
+            }
+            
+            const area = Math.PI * radius * radius;
+            const circumference = 2 * Math.PI * radius;
+            
+            resultDiv.className = 'result success';
+            resultDiv.innerHTML = `
+                <strong>Results:</strong><br>
+                Area: ${area.toFixed(2)} square units<br>
+                Circumference: ${circumference.toFixed(2)} units
+            `;
+        }
+    </script>
+</body>
+</html>

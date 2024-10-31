@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TextBox Color Change</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        input.blurred {
+            background-color: #f9f9f9; 
+        }
+
+        input.focused {
+            background-color: #e0f7fa; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Interactive TextBox</h2>
+        <div class="input-group">
+            <label>Focus/Blur Demo:</label>
+            <input 
+                type="text" 
+                placeholder="Click here to see the effect"
+                onfocus="handleFocus(this)"
+                onblur="handleBlur(this)"
+                class="blurred">
+        </div>
+        <div class="result">
+            Try clicking in and out of the textbox to see the color change effect!
+        </div>
+    </div>
+
+    <script>
+        function handleFocus(element) {
+            element.classList.add('focused');
+            element.classList.remove('blurred');
+        }
+
+        function handleBlur(element) {
+            element.classList.add('blurred');
+            element.classList.remove('focused');
+        }
+    </script>
+</body>
+</html>

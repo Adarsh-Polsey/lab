@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Sum Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Array Sum Calculator</h2>
+        <div class="input-group">
+            <label>Array Elements:</label>
+            <div id="elementsDisplay" class="result">No elements added yet</div>
+        </div>
+        <button onclick="addElement()">Add Element</button>
+        <button onclick="calculateSum()" style="margin-top: 10px; ">Calculate Sum</button>
+        <div id="result" class="result" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        let elements = [];
+
+        function addElement() {
+            const element = prompt("Enter a number:");
+            if (element === null) return;
+            
+            const number = parseFloat(element);
+            if (isNaN(number)) {
+                alert("Please enter a valid number!");
+                return;
+            }
+
+            elements.push(number);
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            const display = document.getElementById('elementsDisplay');
+            display.innerHTML = elements.length > 0 
+                ? `Current elements: [${elements.join(', ')}]`
+                : 'No elements added yet';
+        }
+
+        function calculateSum() {
+            if (elements.length === 0) {
+                alert("Please add some numbers first!");
+                return;
+            }
+
+            const sum = elements.reduce((a, b) => a + b, 0);
+            const resultElement = document.getElementById('result');
+            resultElement.className = 'result success';
+            resultElement.innerHTML = `Sum of all elements: ${sum}`;
+        }
+    </script>
+</body>
+</html>

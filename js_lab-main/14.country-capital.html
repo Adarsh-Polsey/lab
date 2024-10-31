@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Country Capital Selector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Country Capital Finder</h2>
+        <div class="input-group">
+            <label>Select a Country:</label>
+            <select id="countrySelect" onchange="updateCapital()">
+                <option value="">-- Select a country --</option>
+                <option value="Washington, D.C.">United States</option>
+                <option value="London">United Kingdom</option>
+                <option value="Paris">France</option>
+                <option value="Berlin">Germany</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Capital City:</label>
+            <input type="text" id="capitalInput" readonly>
+        </div>
+        <div id="result" class="result">
+            Select a country to see its capital city
+        </div>
+    </div>
+
+    <script>
+        function updateCapital() {
+            const select = document.getElementById('countrySelect');
+            const capital = select.value;
+            const resultDiv = document.getElementById('result');
+            const capitalInput = document.getElementById('capitalInput');
+            
+            capitalInput.value = capital;
+            
+            if (capital) {
+                resultDiv.className = 'result success';
+                resultDiv.innerHTML = `The capital of ${select.options[select.selectedIndex].text} is ${capital}`;
+            } else {
+                resultDiv.className = 'result';
+                resultDiv.innerHTML = 'Select a country to see its capital city';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> Simple Calculator</h2>
+        <div class="grid">
+            <div class="input-group">
+                <label>First Number:</label>
+                <input type="number" id="num1" placeholder="Enter first number">
+            </div>
+            <div class="input-group">
+                <label>Second Number:</label>
+                <input type="number" id="num2" placeholder="Enter second number">
+            </div>
+        </div>
+        <div class="calculator-buttons">
+            <button onclick="calculate('add')" class="add">Add </button>
+            <button onclick="calculate('subtract')" class="subtract">Subtract</button>
+            <button onclick="calculate('multiply')" class="multiply">Multiply</button>
+            <button onclick="calculate('divide')" class="divide">Divide</button>
+        </div>
+        <br>
+        <div id="output" class="output">Result: </div>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const resultDiv = document.getElementById('result');
+            const outputDiv = document.getElementById('output');
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = "Please enter valid numbers!";
+                outputDiv.innerHTML = "Result: ";
+                return;
+            }
+
+            let result;
+            let symbol;
+
+            switch(operation) {
+                case 'add':
+                    result = num1 + num2;
+                    symbol = '+';
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    symbol = '-';
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    symbol = '×';
+                    break;
+                case 'divide':
+                    if (num2 === 0) {
+                        resultDiv.className = 'result error';
+                        resultDiv.innerHTML = "Cannot divide by zero!";
+                        outputDiv.innerHTML = "Result: Error";
+                        return;
+                    }
+                    result = num1 / num2;
+                    symbol = '÷';
+                    break;
+            }
+
+            outputDiv.innerHTML = `Result: ${result.toFixed(2)}`;
+            resultDiv.className = 'result success';
+            resultDiv.innerHTML = `${num1} ${symbol} ${num2} = ${result.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

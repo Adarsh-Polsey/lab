@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .clock-container {
+            padding: 20px;
+            border-radius: 10px;
+            color: #000000;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .clock {
+            font-size: 3em;
+            margin: 10px 0;
+        }
+        .date {
+            font-size: 1.2em;
+            color: #000000;
+        }
+        .timezone {
+            font-size: 0.9em;
+            color: #000000;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Digital Clock</h2>
+        <div class="clock-container">
+            <div id="clock" class="clock">00:00:00</div>
+            <div id="date" class="date"></div>
+            <div id="timezone" class="timezone"></div>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const clockDiv = document.getElementById('clock');
+            const dateDiv = document.getElementById('date');
+            const timezoneDiv = document.getElementById('timezone');
+
+            // Update time
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockDiv.innerHTML = `${hours}:${minutes}:${seconds}`;
+
+            // Update date
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            dateDiv.innerHTML = now.toLocaleDateString(undefined, options);
+
+            // Update timezone
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            timezoneDiv.innerHTML = `Timezone: ${timezone}`;
+        }
+
+        // Update immediately and then every second
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>

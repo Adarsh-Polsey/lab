@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        .mult-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        .mult-table td {
+            border: 1px solid #e0e0e0;
+            padding: 8px;
+            text-align: center;
+        }
+        .mult-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>✖️ Multiplication Table Generator</h2>
+        <div class="grid">
+            <div class="input-group">
+                <label>Enter number:</label>
+                <input type="number" id="number" min="1" placeholder="Enter number">
+            </div>
+            <div class="input-group">
+                <label>Enter limit:</label>
+                <input type="number" id="limit" min="1" placeholder="Enter limit">
+            </div>
+        </div>
+        <button onclick="generateTable()">Generate Table</button>
+        <div id="result" class="result">
+            Enter a number and limit to generate the table
+        </div>
+        <div id="tableContainer" class="table-container"></div>
+    </div>
+
+    <script>
+        function generateTable() {
+            const number = parseInt(document.getElementById('number').value);
+            const limit = parseInt(document.getElementById('limit').value);
+            const resultDiv = document.getElementById('result');
+            const tableContainer = document.getElementById('tableContainer');
+
+            if (isNaN(number) || isNaN(limit) || number <= 0 || limit <= 0) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = "⚠️ Please enter valid positive numbers!";
+                tableContainer.innerHTML = '';
+                return;
+            }
+
+            let tableHTML = '<table class="mult-table">';
+            for (let i = 1; i <= limit; i++) {
+                tableHTML += `
+                    <tr>
+                        <td>${number}</td>
+                        <td>×</td>
+                        <td>${i}</td>
+                        <td>=</td>
+                        <td><strong>${number * i}</strong></td>
+                    </tr>
+                `;
+            }
+            tableHTML += '</table>';
+
+            resultDiv.className = 'result success';
+            resultDiv.innerHTML = `📊 Multiplication table for ${number} up to ${limit}:`;
+            tableContainer.innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html>

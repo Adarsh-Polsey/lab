@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triangle Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Triangle Calculator</h2>
+        <button onclick="calculateTriangle()">Analyze Triangle</button>
+        <div id="result" class="result">
+            Click "Analyze Triangle" and enter the three sides in the dialog boxes.
+        </div>
+    </div>
+
+    <script>
+        function calculateTriangle() {
+            // Prompt user for side lengths
+            const side1 = parseFloat(prompt("Enter the length of Side 1:"));
+            const side2 = parseFloat(prompt("Enter the length of Side 2:"));
+            const side3 = parseFloat(prompt("Enter the length of Side 3:"));
+            const resultDiv = document.getElementById('result');
+
+            // Validate input
+            if (isNaN(side1) || isNaN(side2) || isNaN(side3) || 
+                side1 <= 0 || side2 <= 0 || side3 <= 0) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = "Please enter valid positive numbers for all sides!";
+                return;
+            }
+
+            // Check if triangle is possible
+            if (side1 + side2 <= side3 || side2 + side3 <= side1 || side1 + side3 <= side2) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = "These sides cannot form a triangle!";
+                return;
+            }
+
+            // Determine triangle type
+            let type;
+            if (side1 === side2 && side2 === side3) {
+                type = "Equilateral";
+            } else if (side1 === side2 || side2 === side3 || side1 === side3) {
+                type = "Isosceles";
+            } else {
+                type = "Scalene";
+            }
+
+            // Calculate area using Heron's formula
+            const s = (side1 + side2 + side3) / 2;
+            const area = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+
+            resultDiv.className = 'result success';
+            resultDiv.innerHTML = `
+                <strong>Triangle Analysis:</strong><br>
+                Type: ${type} Triangle<br>
+                Area: ${area.toFixed(2)} square units
+            `;
+        }
+    </script>
+</body>
+</html>

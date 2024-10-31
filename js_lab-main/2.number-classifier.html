@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Type Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Number Type Checker</h2>
+        <div class="input-group">
+            <label>Enter a positive integer:</label>
+            <input type="number" id="number" min="1" placeholder="Enter number to check">
+        </div>
+        <button onclick="checkNumber()">Check Number Type</button>
+        <div id="result" class="result">
+            Enter a number to check its type
+        </div>
+    </div>
+
+    <script>
+        function getDivisorsSum(num) {
+            let sum = 0;
+            for(let i = 1; i < num; i++) {
+                if(num % i === 0) sum += i;
+            }
+            return sum;
+        }
+
+        function checkNumber() {
+            const num = parseInt(document.getElementById('number').value);
+            const resultDiv = document.getElementById('result');
+
+            if (isNaN(num) || num <= 0) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = "Please enter a valid positive integer!";
+                return;
+            }
+
+            const divisorsSum = getDivisorsSum(num);
+            let type;
+            let emoji;
+
+            if (divisorsSum === num) {
+                type = "Perfect";
+                emoji = "";
+            } else if (divisorsSum > num) {
+                type = "Abundant";
+                emoji = "";
+            } else {
+                type = "Deficient";
+                emoji = "";
+            }
+
+            resultDiv.className = 'result success';
+            resultDiv.innerHTML = `
+                <strong>${num} is a ${type} Number ${emoji}</strong><br>
+                Sum of proper divisors: ${divisorsSum}
+            `;
+        }
+    </script>
+</body>
+</html>
