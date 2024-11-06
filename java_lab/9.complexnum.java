@@ -1,7 +1,7 @@
-                                              
+package adarsh;                                         
 import java.util.Scanner;
 
-public class complexnum {
+class complexnum {
 
     int real, imaginary;
  

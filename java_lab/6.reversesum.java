@@ -1,7 +1,7 @@
-
+package adarsh;
 import java.util.Scanner;
 
-public class reversesum {
+class reversesum {
     
     int sum = 0, rev = 0, rem;
     

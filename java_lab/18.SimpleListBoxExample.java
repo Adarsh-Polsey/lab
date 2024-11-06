@@ -1,7 +1,8 @@
+package adarsh;
 import java.awt.*;
 import java.awt.event.*;
 
-public class SimpleListBoxExample {
+class SimpleListBoxExample {
     public SimpleListBoxExample() {
         Frame frame = new Frame("List Box Example");
         List listBox = new List(10);

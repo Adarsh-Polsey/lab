@@ -1,7 +1,7 @@
-
+package adarsh;
 import java.util.Scanner;
 
-public class VolumeCalculator {
+class VolumeCalculator {
 
     public void readdata() {
         Scanner scanner = new Scanner(System.in);

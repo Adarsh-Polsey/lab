@@ -1,7 +1,7 @@
-
+package adarsh;
 import java.util.Scanner;
 
-public class TimeIntervalSum {
+class TimeIntervalSum {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

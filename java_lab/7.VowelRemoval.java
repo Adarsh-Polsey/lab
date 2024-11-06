@@ -1,7 +1,7 @@
-
+package adarsh;
 import java.util.Scanner;
 
-public class VowelRemoval {
+class VowelRemoval {
 
     public static void main(String[] args) {
 

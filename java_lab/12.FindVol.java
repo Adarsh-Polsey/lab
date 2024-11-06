@@ -1,8 +1,8 @@
-
+package adarsh;
 import java.util.Scanner;
 
 
-public class FindVol {
+class FindVol {
 
     double vol, a, b, c;
 

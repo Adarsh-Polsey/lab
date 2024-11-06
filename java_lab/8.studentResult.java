@@ -1,4 +1,4 @@
-
+package adarsh;
 import java.util.Scanner;
 
 class Student {

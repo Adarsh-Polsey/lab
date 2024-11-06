@@ -1,4 +1,4 @@
-
+package adarsh;
 import java.util.Scanner;
 
 abstract class Shape {
@@ -73,7 +73,7 @@ class Cube extends ThreeD {
 
 }
 
-public class ShapeTest {
+class ShapeTest {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

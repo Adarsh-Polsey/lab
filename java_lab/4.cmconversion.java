@@ -1,7 +1,7 @@
-
+package adarsh;
 import java.util.Scanner;
 
-public class cmconversion {
+class cmconversion {
 
     public static void main(String[] args) {
         double cm, inch, meter, km;

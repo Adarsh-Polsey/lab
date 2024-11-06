@@ -1,8 +1,8 @@
-
+package adarsh;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class largestinarr {
+class largestinarr {
 
     public static void main(String args[]) {
 

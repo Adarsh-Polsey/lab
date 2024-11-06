@@ -1,5 +1,5 @@
-
-public class multiThread extends Thread {
+package adarsh;
+class multiThread extends Thread {
 
     public void run() {
         for (int i = 0; i <= 3; i++) {

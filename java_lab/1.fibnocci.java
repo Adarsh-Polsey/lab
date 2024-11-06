@@ -1,6 +1,6 @@
-
+package adarsh;
 import java.util.Scanner;
-public class fibnocci {
+class fibnocci {
     public static void main (String[] args){
         
         int fib1=0,fib2=1,fib3,i,limit;

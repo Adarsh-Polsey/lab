@@ -1,7 +1,7 @@
-
+package adarsh;
 import java.util.Scanner;
 
-public class transpose {
+class transpose {
 
     public static void main(String[] args) {
         int matrix[][]; 
