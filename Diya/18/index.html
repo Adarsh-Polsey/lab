@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<style>
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+    table {
+        border: 1px solid black;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .form-table {
+        width: 80%;
+        margin-top: 50px;
+    }
+</style>
+
+<body align="center" style="padding:20px;">
+    <h1>Biodata Form</h1>
+    <form action="script.php" method="POST" target="_blank">
+        <table class="form-table">
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name1" required></td>
+            </tr>
+            <tr>
+                <td>Father's Name:</td>
+                <td><input type="text" name="name2" required></td>
+            </tr>
+            <tr>
+                <td>Mother's Name:</td>
+                <td><input type="text" name="name3" required></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><textarea name="address1" rows="4" cols="20" required></textarea></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input type="text" name="address" required></td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td><input type="number" name="age" required></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><input type="number" name="phone" required></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td>Hobby:</td>
+                <td><input type="text" name="Hobby" required></td>
+            </tr>
+            <tr>
+                <td>Educational Qualification:</td>
+                <td><input type="text" name="qualification" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Payslip Generator</title>
+        <style>
+            table{
+                border: 1px solid black;
+                margin: auto;
+                margin-top: 20%;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <th>
+            
+                    <form action="script.php" method="post">
+                        <h1>Payslip Genertator</h1>
+                        Name: <input type="text" name="name"> <br><br>
+                        Enter Basic Salary: <input type="text" name="salary"> <br><br>
+                        Designation:
+                        <select name="design" id="design">
+                        <option value="Manager">Manager</option>
+                        <option value="Supervisor">Supervisor</option>
+                        <option value="Clerk">Clerk</option>
+                        <option value="Peon">Peon</option>
+                        </select> <br><br>
+                        <input type="submit" name="submit" value="Submit">
+                    </form>
+                
+            </th>
+        </table>
+    </body>
+</html>
